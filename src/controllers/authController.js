@@ -52,7 +52,7 @@ export const refreshUserSession = async (req, res) => {
     throw createHttpError(401, 'Missing session credentials');
   }
 
-  const session = Session.findOne({
+  const session = await Session.findOne({
     _id: sessionId,
     refreshToken,
   });
